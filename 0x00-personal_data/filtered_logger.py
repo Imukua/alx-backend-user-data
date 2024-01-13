@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""logger file func"""
 
 
 import logging
@@ -12,7 +13,7 @@ def filter_datum(fields: List[str], redaction: str,
         """
         for val in fields:
              message = re.sub(f"{val}=*?{separator}",
-                              f"{redaction}{separator}", message)
+                              f"{val}={redaction}{separator}", message)
         return message
 
 class RedactingFormatter(logging.Formatter):
